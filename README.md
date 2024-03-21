@@ -8,7 +8,7 @@ Para cada questão foi criado um arquivo representante da solução
 ### Questão 1
 
 > [!NOTE]
-> A resolução da questão 1 está no arquivo q1.cs
+> A resolução da questão 1 está no arquivo questions/q1.cs
 
 C#: Altere o código abaixo conforme instruções
 
@@ -76,7 +76,8 @@ class Registro
 ### Questão 2
 
 > [!NOTE]
-> O código da questão 2 corrigido está no arquivo q2.jsx
+> O código da questão 2 corrigido está no arquivo questions/q2.jsx
+> As respostas estão abaixo do código
 
 React: Quais problemas você encontra no código abaixo?
 
@@ -109,3 +110,30 @@ class Produtos extends React.Component {
     }
 }
 ```
+
+#### Problemas encontrados
+
+> [!IMPORTANT]
+> Os problemas foram listados seguindo a ordem númerica das linhas, sem nenhum grau de gravidade dos problemas ou outro parâmetro:
+
+1. É necessário vincular o método `handleAddClick` no construtor da classe
+     - O React não vincula automáticamente um método ao contexto do componente
+     - Portanto dentro do método construtor foi adicionado o trecho de código `this.handleAddClick = this.handleAddClick.bind(this)`
+
+2. O id do produto criado ao chamar o método `handleAddClick` não é único
+     - Ter id único é uma regra comum no mundo da programação, e o mesmo se aplica num ambiente React
+     - Para resolver isso foi adicionado a seguinte validação no código ao criar um novo produto`produtos.length > 0 ? produtos[produtos.length - 1].id + 1 : 1`
+  
+3. Alterar uma variável de estado do React viola o princípio de imutabilidade
+     - Remover o método antigo de adicionar um novo produto à lista de produtos com `produtos.push(novoProduto)` e `this.setState({ produtos })`
+     - Adicionar para criar uma nova variável com os valores antigos e o valor novo `const novosProdutos = [...produtos, novoProduto]`
+     - Atualizar o estado a partir da variável nova `this.setState({ produtos: novosProdutos });`
+  
+4. Ao criar um `<li></li>` no React, é importante passar um valor de chave
+     - Caso não passe, seria disparado um aviso no console, mas o componente ainda funcionaria
+     - O React teria problemas para editar essa lista, pois não haveria uma forma de excluir elementos dela
+     - Caso o valor do id de cada produto fosse o mesmo, esse problema ainda existiria
+  
+5. O evento `onClick={this.handleAddClick}` apresenta um potencial problema, pois não passa os dados do evento para o chamado
+     - Pelo fato de o método `handleAddClick` não receber nenhum parâmetro, no momento esse trecho de código não é um problema
+     - Porém o ideal seria enviar o evento ao chamar o método `handleAddClick` com `onClick={(e) => this.handleAddClick(e)}`
