@@ -7,6 +7,7 @@ Para cada questão foi criado um arquivo representante da solução
 
 ### Questão 1
 
+> [!NOTE]
 > A resolução da questão 1 está no arquivo q1.cs
 
 C#: Altere o código abaixo conforme instruções
@@ -74,7 +75,8 @@ class Registro
 
 ### Questão 2
 
-> A resolução da questão 2 está no arquivo q2.tsx
+> [!NOTE]
+> O código da questão 2 corrigido está no arquivo q2.jsx
 
 React: Quais problemas você encontra no código abaixo?
 
