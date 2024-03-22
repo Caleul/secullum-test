@@ -2,13 +2,14 @@
 
 Para cada questão foi criado um arquivo representante da solução
 
-
 ## Questões 
 
 ### Questão 1
 
 > [!NOTE]
 > A resolução da questão 1 está no arquivo questions/q1.cs
+> 
+> Foram deixados comentários no arquivo explicando a linha de raciocínio
 
 C#: Altere o código abaixo conforme instruções
 
@@ -77,7 +78,10 @@ class Registro
 
 > [!NOTE]
 > O código da questão 2 corrigido está no arquivo questions/q2.jsx
-> As respostas estão abaixo do código
+> 
+> Nele foram deixados comentários explicando a linha de raciocínio
+> 
+> As respostas estão abaixo do código, ainda nessa página
 
 React: Quais problemas você encontra no código abaixo?
 
@@ -119,10 +123,13 @@ class Produtos extends React.Component {
 1. É necessário vincular o método `handleAddClick` no construtor da classe
      - O React não vincula automáticamente um método ao contexto do componente
      - Portanto dentro do método construtor foi adicionado o trecho de código `this.handleAddClick = this.handleAddClick.bind(this)`
+     - Porém, se o método fosse escrito com arrow function, não seria necessário fazer bind do mesmo `handleAddClick = () => {}`
 
 2. O id do produto criado ao chamar o método `handleAddClick` não é único
      - Ter id único é uma regra comum no mundo da programação, e o mesmo se aplica num ambiente React
      - Para resolver isso foi adicionado a seguinte validação no código ao criar um novo produto`produtos.length > 0 ? produtos[produtos.length - 1].id + 1 : 1`
+     - Existe a possibilidade dessa classe produto se repetir dentro da página, gerando id repetido entre componentes e dificultando o controle
+     - Uma possibilidade seria usar uuid, garantindo que mesmo diferentes instancias desse objeto não vão ter um id repetido
   
 3. Alterar uma variável de estado do React viola o princípio de imutabilidade
      - Remover o método antigo de adicionar um novo produto à lista de produtos com `produtos.push(novoProduto)` e `this.setState({ produtos })`
@@ -133,6 +140,7 @@ class Produtos extends React.Component {
      - Caso não passe, seria disparado um aviso no console, mas o componente ainda funcionaria
      - O React teria problemas para editar essa lista, pois não haveria uma forma de excluir elementos dela
      - Caso o valor do id de cada produto fosse o mesmo, esse problema ainda existiria
+     - O código foi alterado para garantir identificação da lista `{ produtos.map(p => <li key={p.id}>{p.descricao}</li>) }`
   
 5. O evento `onClick={this.handleAddClick}` apresenta um potencial problema, pois não passa os dados do evento para o chamado
      - Pelo fato de o método `handleAddClick` não receber nenhum parâmetro, no momento esse trecho de código não é um problema
