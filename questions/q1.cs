@@ -22,6 +22,8 @@ class Program
         listaRegistros[12] = new Registro { Data = new DateTime(2019, 10, 2), Hora = "18:02", Funcionario = "Joao" };
         listaRegistros[13] = new Registro { Data = new DateTime(2019, 10, 2), Hora = "18:30", Funcionario = "Maria" };
 
+        // O código funciona para listas de registro de qualquer tamanho, desde que todos os itens da lista sejam instâncias da classe Registro
+
         Dictionary<DateTime, Dictionary<string, List<string>>> registrosAgrupadosPorDataEFuncionario = AgruparRegistrosPorDataEFuncionario(listaRegistros);
 
         printaTodosRegistros(registrosAgrupadosPorDataEFuncionario);
