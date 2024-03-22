@@ -4,6 +4,13 @@ Para cada questão foi criado um arquivo representante da solução
 
 ## Questões 
 
+> [!WARNING]
+> Embora os comentários sejam úteis para esclarecer partes complexas do código ou documentar decisões de design, seu uso excessivo pode indicar que o código não está seguindo as melhores práticas de programação
+>
+> Isso pode ser a soma de variados equívocos na escrita do código, como nomes de variáveis pouco descritivos, funções com múltiplas responsabilidades, entre outros
+>
+> Nesse caso, os comentários foram usados apenas para esclarecer o motivo da escolha da lógica do código
+
 ### Questão 1
 
 > [!NOTE]
