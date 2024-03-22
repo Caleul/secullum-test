@@ -1,15 +1,19 @@
 # Teste de seleção - C# e React
 
-Para cada questão foi criado um arquivo representante da solução
+No README deste projeto, foram fornecidos esclarecimentos para questões relacionadas ao teste.
+
+Embora seja uma boa prática incluir instruções para execução do código em um ambiente local, neste caso específico, não foram fornecidas tais orientações. Também não foi criado um Dockerfile ou Docker Compose para a execução em contêineres por não ser aplicável. 
+
+Caso queira executar o código C# online, recomendo o site [MyCompiler](https://www.mycompiler.io/pt/new/csharp)
 
 ## Questões 
 
 > [!WARNING]
-> Embora os comentários sejam úteis para esclarecer partes complexas do código ou documentar decisões de design, seu uso excessivo pode indicar que o código não está seguindo as melhores práticas de programação
+> Embora os comentários sejam úteis para esclarecer partes complexas do código ou documentar decisões, seu uso excessivo pode indicar que o código não está seguindo as melhores práticas de programação
 >
-> Isso pode ser a soma de variados equívocos na escrita do código, como nomes de variáveis pouco descritivos, funções com múltiplas responsabilidades, entre outros
+> Nesse caso, os comentários foram usados apenas para esclarecer o motivo da escolha da lógica do código, compreendo que é uma quantidade muito grande de comentários e usualmente não se faz necessário
 >
-> Nesse caso, os comentários foram usados apenas para esclarecer o motivo da escolha da lógica do código
+> Apenas quis demonstrar minha linha de pensamento através dos comentários
 
 ### Questão 1
 
