@@ -1,4 +1,5 @@
 import React from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 class Produtos extends React.Component {
     constructor(props) {
@@ -8,15 +9,21 @@ class Produtos extends React.Component {
         // É necessário fazer um bound nesse método
         // Para vincular o evento ao componente e garantir que ele reflita a instancia do componente
         this.handleAddClick = this.handleAddClick.bind(this);
+        // Caso o método handleClick fosse escrito com uma arrow funcition, não seria necessário criar o trecho de código acima
     } 
     
-    handleAddClick() { 
+    // Caso esse método fosse escrito como o comentário da linha abaixo, não seria necessário criar o bind para vincular o método
+    // handleAddClick = () => {}
+    handleAddClick() {
         const { produtos } = this.state; 
         
         const novoProduto = {
             // O id do produto não era único
-            // A maneira implementada abaixo funciona como um autoincremento em relação ao id do produto anterior
-            id: produtos.length > 0 ? produtos[produtos.length - 1].id + 1 : 1,
+            // A maneira implementada abaixo funcionaria como um autoincremento em relação ao id do produto anterior
+            // id: produtos.length > 0 ? produtos[produtos.length - 1].id + 1 : 1,
+            // Existe a possibilidade dessa classe produto se repetir dentro da página, gerando id repetido entre componentes e dificultando o controle
+            // Uma possibilidade seria usar uuid, garantindo que mesmo diferentes instancias desse objeto não vão ter um id repetido
+            id: uuidv4(),
             descricao: 'Banana'
         };
 
@@ -36,7 +43,7 @@ class Produtos extends React.Component {
                     { produtos.map(p => {
                         // Crio uma referência única para cada item
                         // Essa referência é o id, que agora é único para cada item
-                        <li key={p.id}>{p.descricao}</li>
+                        return <li key={p.id}>{p.descricao}</li>
                     }) }
                 </ul>
                 {/* 
